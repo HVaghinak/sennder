@@ -13,8 +13,6 @@ Install required system packages:
     $ sudo apt-get install python3-pip
     $ sudo apt-get install python-dev
     $ sudo apt-get install libpq-dev
-    $ sudo apt-get install postgresql
-    $ sudo apt-get install postgresql-contrib
 
 Create www directory where project sites and environment dir
 
