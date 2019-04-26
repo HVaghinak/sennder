@@ -30,7 +30,7 @@ class FetchGhibliMovieSerializer(serializers.Serializer):
                 film['people'] = requests.get(film['people'][0]).json()
                 self.response_data.append(film)
 
-        current_url = self.context['request'].build_absolute_uri()
+        current_url = self.context['request'].META['PATH_INFO']
         caching_data = {
             'timestamp': datetime.datetime.now(),
             'data': self.response_data
@@ -42,7 +42,7 @@ class FetchGhibliMovieSerializer(serializers.Serializer):
         return self.response_data
 
     def _generate_response(self):
-        current_url = self.context['request'].build_absolute_uri()
+        current_url = self.context['request'].META['PATH_INFO']
         cached_data = cache.get(current_url)
 
         if cached_data and (datetime.datetime.now() - cached_data['timestamp']).seconds < 60:

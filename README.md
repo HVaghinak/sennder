@@ -55,3 +55,12 @@ Install Memcached
     sudo apt-get update
     sudo apt-get install memcached
     sudo apt-get install libmemcached-tools
+    
+
+Run Project
+    
+    python manage.py runserver
+    
+Run Tests
+
+    python manage.py test
